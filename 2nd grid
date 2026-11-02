@@ -1,0 +1,41 @@
+grid = [
+    ['S', '0', 'X', '0'],
+    ['0', '0', 'X', '0'],
+    ['X', '0', '0', '0'],
+    ['0', '0', '0', 'G']
+]
+
+position = [0, 0]
+visited = []
+
+while True:
+    x, y = position
+    visited.append((x, y))
+
+    print("Agent Position:", position)
+
+    if grid[x][y] == 'G':
+        print("Goal Reached!")
+        break
+
+    moves = [
+        (x + 1, y),
+        (x, y + 1),
+        (x - 1, y),
+        (x, y - 1)
+    ]
+
+    moved = False
+
+    for nx, ny in moves:
+        if 0 <= nx < 4 and 0 <= ny < 4:
+            if grid[nx][ny] != 'X' and (nx, ny) not in visited:
+                position = [nx, ny]
+                moved = True
+                break
+
+    if not moved:
+        print("No path found!")
+        break
+
+print("Visited:", visited)
