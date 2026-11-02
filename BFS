@@ -1,0 +1,32 @@
+from collections import deque
+
+start = (("A", "B"), ("C",))
+goal = (("A",), ("C", "B"))
+
+print("Before:", start)
+
+queue = deque([start])
+visited = set()
+
+while queue:
+    state = queue.popleft()
+
+    if state == goal:
+        print("After:", state)
+        print("Goal Reached!")
+        break
+
+    if state not in visited:
+        visited.add(state)
+
+        for i in range(2):
+            if state[i]:
+                new = list(state)
+                block = new[i][-1]
+                new[i] = new[i][:-1]
+
+                for j in range(2):
+                    if i != j:
+                        temp = new.copy()
+                        temp[j] = temp[j] + (block,)
+                        queue.append(tuple(temp))
