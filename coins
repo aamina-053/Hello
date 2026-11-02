@@ -1,0 +1,62 @@
+coins = [8, 15, 3, 7, 12, 15, 4, 8, 10]
+
+ai_score = 0
+human_score = 0
+
+def minimax(coins, ai_turn):
+    if len(coins) == 0:
+        return 0
+
+    if ai_turn:
+        left = coins[0] + minimax(coins[1:], False)
+        right = coins[-1] + minimax(coins[:-1], False)
+        return max(left, right)
+    else:
+        left = minimax(coins[1:], True)
+        right = minimax(coins[:-1], True)
+        return min(left, right)
+
+print("WELCOME TO COIN GAME")
+print("Coins:", coins)
+
+while coins:
+    print("\nRemaining Coins:", coins)
+
+    left = coins[0] + minimax(coins[1:], False)
+    right = coins[-1] + minimax(coins[:-1], False)
+
+    if left >= right:
+        value = coins.pop(0)
+        print("AI picks:", value)
+    else:
+        value = coins.pop()
+        print("AI picks:", value)
+
+    ai_score += value
+
+    if not coins:
+        break
+
+    print("Remaining Coins:", coins)
+    choice = input("Choose L or R: ").upper()
+
+    if choice == "L":
+        value = coins.pop(0)
+    elif choice == "R":
+        value = coins.pop()
+    else:
+        print("Invalid choice!")
+        continue
+
+    human_score += value
+    print("Human picks:", value)
+
+print("\nAI Score:", ai_score)
+print("Human Score:", human_score)
+
+if ai_score > human_score:
+    print("AI WINS!")
+elif human_score > ai_score:
+    print("HUMAN WINS!")
+else:
+    print("MATCH DRAW!")
