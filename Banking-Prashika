@@ -1,0 +1,50 @@
+print("================================")
+print("       WELCOME TO ABC BANK")
+print("================================")
+
+print("Chatbot: Hello! How can I help you?")
+print("Type 'bye' to exit.\n")
+
+while True:
+    user = input("You: ").lower()
+
+    if "hello" in user or "hi" in user:
+        print("Bot: Welcome to ABC Bank! How can I assist you?")
+
+    elif "balance" in user:
+        print("Bot: Your demo account balance is Rs. 25,000.")
+
+    elif "account" in user:
+        print("Bot: We provide Savings and Current accounts.")
+
+    elif "loan" in user:
+        print("Bot: We provide Home, Personal and Education loans.")
+
+    elif "deposit" in user:
+        print("Bot: You can deposit money through our branch or online banking.")
+
+    elif "withdraw" in user:
+        print("Bot: You can withdraw money using an ATM or bank branch.")
+
+    elif "transfer" in user:
+        print("Bot: You can transfer money using UPI, NEFT or RTGS.")
+
+    elif "interest" in user:
+        print("Bot: Interest rates depend on the type of account or loan.")
+
+    elif "timing" in user or "hours" in user:
+        print("Bot: Our demo bank working hours are 10 AM to 4 PM.")
+
+    elif "contact" in user or "customer care" in user:
+        print("Bot: Contact our demo customer care at 1800-000-000.")
+
+    elif "thank" in user:
+        print("Bot: Thank you for choosing ABC Bank!")
+
+    elif "bye" in user:
+        print("Bot: Thank you for visiting ABC Bank. Goodbye!")
+        break
+
+    else:
+        print("Bot: Sorry, I cannot understand your query.")
+        print("Bot: Please ask about balance, loans, accounts or banking services.")
