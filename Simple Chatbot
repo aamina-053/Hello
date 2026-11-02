@@ -1,0 +1,83 @@
+banking = {
+    "Account": ["Balance", "Statement", "Account Type"],
+    "Cards": ["Debit Card", "Credit Card", "Block Card"],
+    "Loans": ["Personal Loan", "Home Loan"],
+    "Support": ["Branch Locator", "ATM Locator", "Complaint"]
+}
+
+while True:
+    print("\n===== BANKING CHATBOT =====")
+    print("1. Account")
+    print("2. Cards")
+    print("3. Loans")
+    print("4. Support")
+    print("0. Exit")
+
+    choice = input("\nSelect a service: ")
+
+    if choice == "0":
+        print("Thank you for banking with us!")
+        break
+
+    elif choice == "1":
+        service = "Account"
+    elif choice == "2":
+        service = "Cards"
+    elif choice == "3":
+        service = "Loans"
+    elif choice == "4":
+        service = "Support"
+    else:
+        print("Invalid choice!")
+        continue
+
+    print("\n" + service)
+
+    options = banking[service]
+
+    print("1.", options[0])
+    print("2.", options[1])
+
+    if service == "Account" or service == "Cards" or service == "Support":
+        print("3.", options[2])
+
+    sub = input("\nSelect an option: ")
+
+    if service == "Account":
+        if sub == "1":
+            print("Your balance is ₹15,410.22")
+        elif sub == "2":
+            print("Your last 10 transactions are available.")
+        elif sub == "3":
+            print("This is a savings account.")
+        else:
+            print("Invalid option!")
+
+    elif service == "Cards":
+        if sub == "1":
+            print("Your Debit Card is active.")
+        elif sub == "2":
+            print("Your Credit Card is active.")
+        elif sub == "3":
+            print("Please contact the bank to block your card.")
+        else:
+            print("Invalid option!")
+
+    elif service == "Loans":
+        if sub == "1":
+            print("Personal Loan interest starts at 8.75% p.a.")
+        elif sub == "2":
+            print("Home Loan interest starts at 6.32% p.a.")
+        else:
+            print("Invalid option!")
+
+    elif service == "Support":
+        if sub == "1":
+            print("Visit your nearest bank branch.")
+        elif sub == "2":
+            print("Visit your nearest ATM.")
+        elif sub == "3":
+            complaint = input("Enter your complaint: ")
+            print("Your complaint has been registered.")
+        else:
+            print("Invalid option!")
