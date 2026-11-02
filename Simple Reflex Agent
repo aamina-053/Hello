@@ -1,0 +1,30 @@
+# Simple Reflex Agent - Vacuum Cleaner World
+
+# Initial environment
+A = "Dirty"
+B = "Dirty"
+
+# Starting position
+location = "A"
+
+while A == "Dirty" or B == "Dirty":
+
+    if location == "A":
+        if A == "Dirty":
+            print("Room A is Dirty - Cleaning")
+            A = "Clean"
+        else:
+            print("Room A is Clean - Moving to Room B")
+            location = "B"
+
+    elif location == "B":
+        if B == "Dirty":
+            print("Room B is Dirty - Cleaning")
+            B = "Clean"
+        else:
+            print("Room B is Clean - Moving to Room A")
+            location = "A"
+
+print("\nBoth rooms are clean!")
+print("Room A:", A)
+print("Room B:", B)
